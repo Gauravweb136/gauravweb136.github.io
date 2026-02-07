@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Small Business Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #007bff;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+        nav ul li {
+            margin-left: 2rem;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #007bff;
+        }
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            margin: 3px 0;
+        }
+        main {
+            margin-top: 70px;
+        }
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        #hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            text-align: center;
+            padding: 8rem 2rem;
+        }
+        #hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        #hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: #fff;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #f4f4f4;
+        }
+        #about {
+            background-color: #fff;
+        }
+        #about h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #007bff;
+        }
+        #about p {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        #services {
+            background-color: #f4f4f4;
+        }
+        #services h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #007bff;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .service-card {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .service-card h3 {
+            margin-bottom: 1rem;
+            color: #007bff;
+        }
+        #contact {
+            background-color: #fff;
+        }
+        #contact h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #007bff;
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        form div {
+            margin-bottom: 1rem;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 0.8rem;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+        }
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #fff;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+            nav ul.active {
+                display: flex;
+            }
+            nav ul li {
+                margin: 0;
+                text-align: center;
+                padding: 1rem;
+            }
+            .menu-toggle {
+                display: flex;
+            }
+            #hero h1 {
+                font-size: 2rem;
+            }
+            #hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">My Business</div>
+            <ul id="nav-menu">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="menu-toggle" id="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="hero">
+            <h1>Welcome to My Business</h1>
+            <p>Providing top-notch personal services tailored to your needs.</p>
+            <a href="#contact" class="btn">Get in Touch</a>
+        </section>
+        <section id="about">
+            <h2>About Us</h2>
+            <p>We are a dedicated team committed to delivering exceptional personal services. With years of experience, we ensure quality and satisfaction in everything we do. Our mission is to build lasting relationships with our clients through trust and excellence.</p>
+        </section>
+        <section id="services">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Consultation</h3>
+                    <p>Expert advice tailored to your specific needs.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Custom Solutions</h3>
+                    <p>Personalized services designed just for you.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Support</h3>
+                    <p>Ongoing assistance to ensure your satisfaction.</p>
+                </div>
+            </div>
+        </section>
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <form id="contact-form">
+                <div>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 My Business. All rights reserved.</p>
+    </footer>
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('nav-menu').classList.toggle('active');
+        });
+
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+
+        document.querySelectorAll('nav ul li a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                window.scrollTo({
+                    top: targetSection.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+                document.getElementById('nav-menu').classList.remove('active');
+            });
+        });
+    </script>
+    </script>
+
+<div style="position:fixed;bottom:20px;right:20px;z-index:999;">
+  <a href="https://wa.me/917222976114?text=Hello%20I%20need%20your%20service"
+     target="_blank"
+     style="background:#25D366;color:white;
+     padding:14px 18px;border-radius:50px;
+     font-weight:bold;text-decoration:none;
+     box-shadow:0 4px 10px rgba(0,0,0,0.3);">
+     💬 WhatsApp
+  </a>
+</div>
+
+</body>
+</html>
